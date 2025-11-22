@@ -1,0 +1,181 @@
+body {
+  font-family: "Quicksand", sans-serif;
+  background: #fafafa;
+  padding: 40px;
+  color: #1f1f1f;
+}
+
+.container {
+  width: 400px;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  outline: none;
+}
+
+input #todo-input{
+  border: 3px solid rgba(0, 0, 0, 0.05);
+}
+
+button {
+  padding: 10px 16px;
+  border: none;
+  cursor: pointer;
+  background: #db4c3f;
+  color: white;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #c4372a;
+}
+
+#todo-list {
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+#todo-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.check {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.item-text {
+  flex: 1;
+  font-size: 15px;
+}
+
+.status-tag {
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.done {
+  background: #e1f3e8;
+  color: #1a7f47;
+}
+
+.not-done {
+  background: #ffe4e2;
+  color: #c4372a;
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+}
+
+.edit-btn {
+  background: #1f7a4f;
+}
+
+.edit-btn:hover {
+  background: #16603e;
+}
+
+.delete-btn {
+  background: #db4c3f;
+}
+
+.delete-btn:hover {
+  background: #c4372a;
+}
+
+.danger {
+  width: 100%;
+  margin-top: 20px;
+  background: #e74c3c;
+}
+
+.danger:hover {
+  background: #c0382b;
+}
+
+.task {
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+}
+
+/* #todo-list li:nth {
+  background-color: dodgerblue;
+} */
+
+/* Warna berdasarkan urutan */
+#todo-list li:nth-child(1) {
+  background: #ffd6e8;
+}
+#todo-list li:nth-child(2) {
+  background: #fff5ba;
+}
+#todo-list li:nth-child(3) {
+  background: #d7fbe8;
+}
+#todo-list li:nth-child(4) {
+  background: #d6eaf8;
+}
+#todo-list li:nth-child(5) {
+  background: #e5f8d6;
+}
+#todo-list li:nth-child(6) {
+  background: #ffe5d8;
+}
+
+/* Kalau tugas lebih dari 5, ulang lagi */
+#todo-list li:nth-child(5n + 1) {
+  background: #ffd6e8;
+}
+#todo-list li:nth-child(5n + 2) {
+  background: #fff5ba;
+}
+#todo-list li:nth-child(5n + 3) {
+  background: #d7fbe8;
+}
+#todo-list li:nth-child(5n + 4) {
+  background: #d6eaf8;
+}
+#todo-list li:nth-child(5n + 5) {
+  background: #e5f8d6;
+}
+#todo-list li:nth-child(5n + 6) {
+  background: #ffe5d8;
+}

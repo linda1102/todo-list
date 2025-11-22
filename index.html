@@ -1,0 +1,53 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List TypeScript</title>
+    <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+
+<h2>TODO LIST</h2>
+<p id="status">Saat ini kamu punya 0 list</p>
+<p id="error" style="color:red;"></p>
+
+<input type="text" id="inputName" placeholder="Judul baru...">
+<button id="btnAdd">Tambah List</button>
+<button id="btnClear">Hapus Semua</button>
+
+<hr>
+
+<ul id="listContainer"></ul>
+
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To Do List App</title>
+    <link rel="stylesheet" href="src/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@600&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <h1>To-Do List</h1>
+
+      <div class="input-group">
+        <input type="text" id="todo-input" placeholder="✍Tambahkan tugas..." />
+        <button id="add-btn">Tambah</button>
+      </div>
+
+      <ul id="todo-list"></ul>
+
+      <button id="clear-all" class="danger">Hapus Semua</button>
+    </div>
+
+    <script type="module" src="src/main.ts"></script>
+  </body>
+</html>
