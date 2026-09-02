@@ -7,21 +7,32 @@ interface TodoItem {
   text: string;
   done: boolean;
 }
+// LOAD DATA DARI LOCALSTORAGE SAAT AWAL
+let todos: TodoItem[] = JSON.parse(localStorage.getItem("todos") || "[]");
 
-// data
-let todos: TodoItem[] = [];
+// Simpan ke localStorage
+function saveToLocalStorage() {
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
 
-// render ulang semua list
 function renderTodos() {
   list.innerHTML = "";
 
   todos.forEach((item, index) => {
     const li = document.createElement("li");
+    li.classList.add("todo-item");
+
+    // ANIMASI MASUK
+    setTimeout(() => {
+      li.classList.add("show");
+    }, 10);
 
     li.innerHTML = `
       <input type="checkbox" class="check" ${item.done ? "checked" : ""}>
       
-      <span class="item-text" style="text-decoration: ${item.done ? "line-through" : "none"};">
+      <span class="item-text" style="text-decoration: ${
+        item.done ? "line-through" : "none"
+      };">
         ${item.text}
       </span>
       
@@ -38,34 +49,44 @@ function renderTodos() {
     // checkbox event
     li.querySelector(".check")?.addEventListener("change", () => {
       todos[index].done = !todos[index].done;
+      saveToLocalStorage();
       renderTodos();
     });
 
-    // edit event
+    // edit
     li.querySelector(".edit-btn")?.addEventListener("click", () => {
       const newName = prompt("Ubah nama:", item.text);
       if (newName && newName.trim() !== "") {
         todos[index].text = newName.trim();
+        saveToLocalStorage();
         renderTodos();
       }
     });
 
-    // delete event
+    // delete
     li.querySelector(".delete-btn")?.addEventListener("click", () => {
-      todos.splice(index, 1);
-      renderTodos();
+      if (confirm("Yakin ingin menghapus tugas ini?")) {
+        // ANIMASI KELUAR
+        li.classList.add("hide");
+        setTimeout(() => {
+          todos.splice(index, 1);
+          saveToLocalStorage();
+          renderTodos();
+        }, 300);
+      }
     });
 
     list.appendChild(li);
   });
 }
 
-// menambah todo
+// TAMBAH TODO
 function addTodo() {
   const text = input.value.trim();
   if (text === "") return alert("Masukkan tugas dulu!");
 
   todos.push({ text, done: false });
+  saveToLocalStorage();
   input.value = "";
   renderTodos();
 }
@@ -76,15 +97,14 @@ input.addEventListener("keypress", (e) => {
   if (e.key === "Enter") addTodo();
 });
 
+// HAPUS SEMUA + KONFIRMASI
 clearAllBtn.addEventListener("click", () => {
-  list.innerHTML = "";
-  todos = [];
+  if (todos.length === 0) return alert("Tidak ada tugas!");
+  if (confirm("Hapus semua tugas?")) {
+    list.innerHTML = "";
+    todos = [];
+    saveToLocalStorage();
+  }
 });
 
-const colors = [
-  "#ffe1e1", // pink soft
-  "#e1e8ff", // blue soft
-  "#e7ffe1", // green soft
-  "#fff4d6", // yellow soft
-  "#f3e1ff"  // purple soft
-];
+renderTodos();

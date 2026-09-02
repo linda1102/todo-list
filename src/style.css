@@ -1,17 +1,25 @@
-body {
-  font-family: "Quicksand", sans-serif;
-  background: #fafafa;
-  padding: 40px;
-  color: #1f1f1f;
+* {
+  max-width: 100%;
 }
 
-.container {
+body {
+  font-family: "Quicksand", sans-serif;
+  background: #dbeeff;
+  margin: 0;
+  padding: 40px 10px; 
+  color: #1f1f1f;
+  display: flex;
+  justify-content: center;
+}
+
+.container { 
   width: 400px;
   margin: 0 auto;
   background: #ffffff;
   padding: 25px;
   border-radius: 14px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 9px 18px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e0e0e0;
 }
 
 h1 {
@@ -41,11 +49,12 @@ button {
   padding: 10px 16px;
   border: none;
   cursor: pointer;
-  background: #db4c3f;
+  background-color: #ff8dc4;
   color: white;
   border-radius: 8px;
   font-weight: 500;
   transition: 0.2s;
+  font-weight: bold;
 }
 
 button:hover {
@@ -103,11 +112,11 @@ button:hover {
 }
 
 .edit-btn {
-  background: #1f7a4f;
+  background: #89c7fa;
 }
 
 .edit-btn:hover {
-  background: #16603e;
+  background: #5db8f9;
 }
 
 .delete-btn {
@@ -121,7 +130,8 @@ button:hover {
 .danger {
   width: 100%;
   margin-top: 20px;
-  background: #e74c3c;
+  background: #efb3cd;
+  font-weight: bold;
 }
 
 .danger:hover {
@@ -136,11 +146,6 @@ button:hover {
   font-weight: bold;
 }
 
-/* #todo-list li:nth {
-  background-color: dodgerblue;
-} */
-
-/* Warna berdasarkan urutan */
 #todo-list li:nth-child(1) {
   background: #ffd6e8;
 }
@@ -178,4 +183,70 @@ button:hover {
 }
 #todo-list li:nth-child(5n + 6) {
   background: #ffe5d8;
+}
+
+.todo-item {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.3s;
+}
+
+.todo-item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.todo-item.hide {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 480px) {
+  body {
+    padding: 20px 10px;
+  }
+
+  .container {
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  input[type="text"] {
+    padding: 10px;
+  }
+
+  button {
+    padding: 8px 8px;
+  }
+
+  #todo-list li {
+    padding: 10px;
+    gap: 8px;
+  }
 }
